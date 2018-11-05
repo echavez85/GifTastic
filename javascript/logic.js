@@ -8,12 +8,31 @@ $(document).ready(function()) {
         var gifTopic = $(this).attr("data-name");
         var queryURL = `https://api.giphy.com/v1/gifs/search?q=ryan+gosling&api_key=qPnM9oCUgEYxmEAp0JVH7PdbS4lsMrcv&q=${gifTopic}`;
 
-        // Create AJAX call for the gif button being clicked.
+        // Create AJAX request for the gif button being clicked.
         $.ajax({
             url: queryURL,
             method: "GET"
         }).then(function(response) {
-            
+
+            // Store array of results in the results variable.
+            var results = response.data;
+            // Loop over every result item.
+            for(var i = 0; i< results.length; i++) {
+                // Create a div for the gif.
+                var gifDiv = $("<div>");
+
+                // Create image tag.
+                var topicImage = $("<img>");
+
+                // Give image tag source from the response.
+                topicImage.attr("src", results[i].original.url);
+                
+                // Store rating of the results.
+                var rating = results[i].rating;
+
+                // Create paragraph tag with item's rating.
+                var p = $("<p>").text(`Rating: ${rating}`);
+            }
         })
     }
 
@@ -21,13 +40,11 @@ $(document).ready(function()) {
 
     
 
-    // Retrieve URL for the gif.
     
-    // Create an element to hold the gif.
+    
+    
 
     // Append the gif with a (state === "still").
-
-    // Store the rating data.
 
     // Create an element to have the rating data displayed.
 
