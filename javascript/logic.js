@@ -1,5 +1,7 @@
 $(document).ready(function()) {
+    
     // Initial gif array
+    var gifTopics = ["Gross", "Party", "Excited", "Sad", "Nerd", "Christmas", "Thanksgiving", "Snow"];
 
     // displayGifFunction re-renders HTML to display the appropriate content.
 
