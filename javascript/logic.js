@@ -4,8 +4,22 @@ $(document).ready(function()) {
     var gifTopics = ["Gross", "Party", "Excited", "Sad", "Nerd", "Christmas", "Thanksgiving", "Snow"];
 
     // displayGifFunction re-renders HTML to display the appropriate content.
+    function displayGifButtons() {
+        var gifTopic = $(this).attr("data-name");
+        var queryURL = `https://api.giphy.com/v1/gifs/search?q=ryan+gosling&api_key=qPnM9oCUgEYxmEAp0JVH7PdbS4lsMrcv&q=${gifTopic}`;
 
-    // Create AJAX call for the gif button being clicked.
+        // Create AJAX call for the gif button being clicked.
+        $.ajax({
+            url: queryURL,
+            method: "GET"
+        }).then(function(response) {
+            
+        })
+    }
+
+
+
+    
 
     // Retrieve URL for the gif.
     
