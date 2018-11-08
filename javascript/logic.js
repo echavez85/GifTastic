@@ -1,4 +1,4 @@
-$(document).ready(function()) {
+$(document).ready(function() {
 
     // Initial gifTopics array
     var gifTopics = ["Gross", "Party", "Excited", "Sad", "Nerd", "Christmas", "Thanksgiving", "Snow"];
@@ -32,17 +32,60 @@ $(document).ready(function()) {
 
                 // Create paragraph tag with item's rating.
                 var p = $("<p>").text(`Rating: ${rating}`);
+                
+                // Append the gifs to the gifdiv.
+                gifDiv.append(topicImage);
+                givDiv.append(rating);
+
+                // Prepend the gifDiv to the html.
+                $("#gifHolder").prepend(gifDiv);
+
+            });
+        }
+
+        // Function for displaying the buttons.
+        function renderButtons() {
+
+            // Delete other buttons prior to adding new ones.
+            $("#buttonsHolder").empty();
+
+            // Loop through array of gif topics.
+            for(var i = 0; i < gifTopics.length; i++)
+            {
+                // Dynamically generate buttons for each gif topic in the array with $("<button").
+                var topicButton = $("<button>");
+
+                // Add class of "gifBtn" to button.
+                topicButton.addClass("gifBtn");
+
+                // Add data attribute.
+                topicButton.attr("data-name", gifTopics[i];
+
+                // Provide initial button text.
+                topicButton.text(gifTopics[i]);
+
+                // Add the button to id="buttonsHolder".
+                $("#buttonsHolder").append(topicButton);
             }
-        })
-    }
+        }
 
+        // Create on click function for submit button.
+        $("#add-gifs").on("click", function(event) {
+            event.preventDefaul();
 
+            // Take input from textbox.
+            var gifTopic = $("#gif-topic-input").val().trim();
 
-    
+            // Add gif topic from textbox to array.
+            gifTopics.push(gifTopic);
 
-    
-    
-    
+            // Call renderButtons to process gif array.
+
+            renderButtons();
+        });
+
+        renderButtons();
+
 
     // Append the gif with a (state === "still").
 
@@ -50,32 +93,22 @@ $(document).ready(function()) {
 
     // Display the rating.
 
-    // Function for displaying the gif and gif data.
+    
 
-    // Delete other buttons prior to adding new ones.
+    
 
-    // Loop through array of gif topics.
+    
 
-    // Dynamically generate buttons for each gif topic in the array with $("<button").
+    
 
-    // Add class of "gifBtn" to button.
+    
 
-    // Add data attribute.
+    
 
-    // Provide initial button text.
-
-    // Add the button to id="buttonsHolder".
-
-    // Create on click function for submit button.
-
-    // Take input from textbox.
-
-    // Add gif topic from textbox to array.
-
-    // Call renderButtons to process gif array.
+    
 
     // Add click event listener to all elements with class of "gifBtn".
 
     // Call renderButtons to display initial buttons.
 
-}
+})
