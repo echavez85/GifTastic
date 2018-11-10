@@ -82,6 +82,9 @@ $(document).ready(function () {
                 // Give image tag source from the response.
                 topicImage.attr("src", results[i].images.original_still.url);
 
+                // Add class to the images.
+                topicImage.addClass("gif");
+
                 // Store rating of the results.
                 var rating = results[i].rating;
 
@@ -95,12 +98,27 @@ $(document).ready(function () {
                 // Prepend the gifDiv to the html.
                 $("#gifHolder").prepend(gifDiv);
 
+                $(".gif").on("click", function() {
+                    var state = $(this).attr("data-state");
+            
+                    if(state === "still") {
+                        $(this).attr("src", $(this).attr("data-animate"));
+                        $(this).attr("data-state", "animate");
+                    } else {
+                        $(this).attr("src", $(this).attr("data-still"));
+                        $(this).attr("data-state", "still");
+                    }
+                })
             };
         })
         renderButtons();
     };
     renderButtons();
+
+    
 });
+
+
 
 
 
