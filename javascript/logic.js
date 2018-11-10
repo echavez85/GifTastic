@@ -61,7 +61,7 @@ $(document).ready(function () {
         console.log('gifTopic', gifTopic);
 
         // var gifTopic = $(this).attr("data-name");
-        var queryURL = `https://api.giphy.com/v1/gifs/search?q=ryan+gosling&api_key=qPnM9oCUgEYxmEAp0JVH7PdbS4lsMrcv&q=${gifTopic}`;
+        var queryURL = `https://api.giphy.com/v1/gifs/search?q=ryan+gosling&api_key=qPnM9oCUgEYxmEAp0JVH7PdbS4lsMrcv&q=${gifTopic}&limit=10`;
 
         // Create AJAX request for the gif button being clicked.
         $.ajax({
@@ -80,7 +80,7 @@ $(document).ready(function () {
                 var topicImage = $("<img>");
 
                 // Give image tag source from the response.
-                topicImage.attr("src", results[i].images.original_still.url);
+                topicImage.attr("src", results[i].images.fixed_width_still.url);
 
                 // Add class to the images.
                 topicImage.addClass("gif");
