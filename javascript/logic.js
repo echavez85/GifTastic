@@ -78,9 +78,14 @@ $(document).ready(function () {
 
                 // Create image tag.
                 var topicImage = $("<img>");
+                // var topicImageMoving = $("<img>");
 
                 // Give image tag source from the response.
                 topicImage.attr("src", results[i].images.fixed_width_still.url);
+
+                topicImage.attr("data-animate", results[i].images.fixed_width.url);
+
+                topicImage.attr("data-still", results[i].images.fixed_width_still.url);
 
                 // Add class to the images.
                 topicImage.addClass("gif");
