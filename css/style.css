@@ -8,8 +8,11 @@ button,
     margin-right: 5px;
     margin-bottom: 20px;
     background-color: lightcoral;
+    padding-top: 5px;
 }
 
 body {
     background-image: url(../images/wide_rectangles.png);
+    font-family: fantasy;
+    padding-top: 30px;
 }
