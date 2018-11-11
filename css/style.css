@@ -1,3 +1,15 @@
-img {
-    margin: 15px;
+img,
+p {
+    margin-right: 15px;
+}
+
+button,
+#add-gif {
+    margin-right: 5px;
+    margin-bottom: 20px;
+    background-color: lightcoral;
+}
+
+body {
+    background-image: url(../images/wide_rectangles.png);
 }
